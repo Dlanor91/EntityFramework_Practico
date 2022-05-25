@@ -6,7 +6,7 @@ using DemoEF_01.Dominio.InterfacesRepositorios;
 
 namespace AccesoDatos.EF
 {
-	class RepositorioAutor : IRepositorioAutor
+	public class RepositorioAutor : IRepositorioAutor
 	{
 		public bool Add(Autor nuevoAutor)
 		{
@@ -18,7 +18,7 @@ namespace AccesoDatos.EF
 			throw new NotImplementedException();
 		}
 
-		public Autor FindById(object Clave)
+		public Autor FindById(int id)
 		{
 			throw new NotImplementedException();
 		}
@@ -33,7 +33,7 @@ namespace AccesoDatos.EF
 			throw new NotImplementedException();
 		}
 
-		public bool Remove(object Clave)
+		public bool Remove(int id)
 		{
 			throw new NotImplementedException();
 		}
