@@ -1,0 +1,26 @@
+==================================================================================================================
+
+DEMO_EF_01_Etapa0
+==================================================================================================================
+
+
+Esta solución incluye la "cáscara" para arrancar con EF CORE
+
+- Biblioteca con clases de dominio y las interfaces de los repositorio
+
+	- Entidades de negocio: 
+						Clase Autor.
+
+	- Interfaces de repositorio: 	Interfaz con las operaciones CRUD Básicas 
+							+ 
+						Interfaz con las operaciones que debe realizar todo Repositorio que maneja autores.
+
+	- No tiene dependencias con ningún proyecto  (salvo Framework)
+
+- Biblioteca de clases AccesoDatos.
+
+	- EF\RepositorioAutor : Realiza la interfaz IRepositorioAutor utilizando EF
+							(Métodos pendientes de implementación)
+
+	- Tiene dependencia con Dominio.
+	
