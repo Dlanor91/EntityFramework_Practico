@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using DemoEF_01.Dominio.EntidadesNegocio;
 using DemoEF_01.Dominio.InterfacesRepositorios;
@@ -8,39 +9,49 @@ namespace AccesoDatos.EF
 {
 	public class RepositorioAutor : IRepositorioAutor
 	{
-		public bool Add(Autor nuevoAutor)
+        public LibreriaContext Contexto { get; set; }
+
+        public RepositorioAutor(LibreriaContext ctx)
+        {
+            Contexto=ctx;
+        }
+
+        public bool Add(Autor nuevoAutor)
 		{
-			throw new NotImplementedException();
+			Contexto.Autores.Add(nuevoAutor);
+			return Contexto.SaveChanges() >=1;
 		}
 
 		public IEnumerable<Autor> FindAll()
 		{
-			throw new NotImplementedException();
+			return Contexto.Autores.ToList();
 		}
 
 		public Autor FindById(int id)
 		{
-			throw new NotImplementedException();
+			return Contexto.Autores.Find(id);
 		}
 
 		public IEnumerable<Autor> GetAutoresNacionalidad(string nacionalidad)
 		{
-			throw new NotImplementedException();
+			return Contexto.Autores.Where(autor => autor.Nacionalidad == nacionalidad).ToList();
 		}
 
 		public IEnumerable<Autor> GetAutoresNombreIncluye(string textoBuscado)
 		{
-			throw new NotImplementedException();
+			return Contexto.Autores.Where(autor => autor.Nombre.Contains(textoBuscado)).ToList();
 		}
 
 		public bool Remove(int id)
 		{
-			throw new NotImplementedException();
+			Contexto.Autores.Remove(new Autor() { Id = id});
+			return Contexto.SaveChanges() >=1;
 		}
 
 		public bool Update(Autor autor)
 		{
-			throw new NotImplementedException();
+			Contexto.Autores.Update(autor);
+			return Contexto.SaveChanges()>=1;
 		}
 	}
 }

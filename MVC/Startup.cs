@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using DemoEF_01.Dominio.InterfacesRepositorios;
+using AccesoDatos.EF;
 
 namespace MVC
 {
@@ -25,8 +27,13 @@ namespace MVC
         {
             services.AddControllersWithViews();
 
+            services.AddScoped<IRepositorioAutor, RepositorioAutor>();
+            services.AddScoped<IManejadorAutor, ManejadorAutor>();
+
             //para entity frameworks
-            
+            string strCon = Configuration.GetConnectionString("MiConexion");
+            services.AddDbContext<LibreriaContext>(options => options.UseSqlServer(strCon));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

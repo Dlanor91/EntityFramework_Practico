@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace DemoEF_01.Dominio.EntidadesNegocio
@@ -6,12 +8,15 @@ namespace DemoEF_01.Dominio.EntidadesNegocio
 	/// <summary>
 	/// Entidad POCO (Plain Old CLR Object)
 	/// </summary>
+	[Table("Autor")]
 	public class Autor:InterfacesEntidades.IValidable, IEquatable<Autor>
 	{
 		#region Properties
-		 
+		[MaxLength(20)][Required, Display(Name = "Nombre de Autor")]
 		public string Nombre { get; set; }
+		[MaxLength(20)]
 		public string Nacionalidad { get; set; }
+		[Key]
 		public int Id { get ; set ; }
 
 

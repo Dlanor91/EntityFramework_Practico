@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DemoEF_01.Dominio.InterfacesRepositorios
+namespace CasosDeUso
 {
     public interface IManejadorAutor
     {
