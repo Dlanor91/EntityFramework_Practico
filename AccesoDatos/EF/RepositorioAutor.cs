@@ -39,7 +39,11 @@ namespace AccesoDatos.EF
 
 		public IEnumerable<Autor> GetAutoresNombreIncluye(string textoBuscado)
 		{
-			return Contexto.Autores.Where(autor => autor.Nombre.Contains(textoBuscado)).ToList();
+			return Contexto.Autores
+				.Where(autor => autor.Nombre.Contains(textoBuscado))
+				.OrderBy(autor => autor.Nacionalidad)
+				.ThenBy(autor => autor.Nombre)
+				.ToList();
 		}
 
 		public bool Remove(int id)

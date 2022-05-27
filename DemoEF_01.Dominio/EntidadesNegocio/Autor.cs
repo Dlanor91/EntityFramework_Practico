@@ -19,10 +19,12 @@ namespace DemoEF_01.Dominio.EntidadesNegocio
 		[Key]
 		public int Id { get ; set ; }
 
+		[Column("Nacimiento")]
+        public DateTime FechaNac { get; set; }
 
-		#endregion
-		#region Implementación de interfaces de las Entidades
-		public bool Validar()
+        #endregion
+        #region Implementación de interfaces de las Entidades
+        public bool Validar()
 		{
 			return !string.IsNullOrEmpty(Nombre) 
 				&& !string.IsNullOrEmpty(Nacionalidad);
